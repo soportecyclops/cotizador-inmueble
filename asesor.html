@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tasación Interna – Century21</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<h1>Tasación Interna – Asesor</h1>
+
+<section>
+  <h2>Inmueble a Tasar</h2>
+
+  <label>Superficie cubierta (m²)
+    <input type="number" id="supCubierta">
+  </label>
+
+  <label>Estado (1 a 5)
+    <input type="number" id="estado" min="1" max="5">
+  </label>
+
+  <label>Calidad (1 a 5)
+    <input type="number" id="calidad" min="1" max="5">
+  </label>
+</section>
+
+<section>
+  <h2>Comparables</h2>
+
+  <table id="tablaComparables">
+    <thead>
+      <tr>
+        <th>Precio USD</th>
+        <th>Superficie</th>
+        <th>Estado</th>
+        <th>Calidad</th>
+        <th>Tipo</th>
+        <th>Antigüedad (meses)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- filas dinámicas -->
+    </tbody>
+  </table>
+
+  <button id="agregarComparable">Agregar comparable</button>
+</section>
+
+<section>
+  <button id="calcular">Calcular Tasación</button>
+</section>
+
+<section id="resultado">
+  <h2>Resultado Interno</h2>
+  <p>Mínimo: <span id="minimo"></span></p>
+  <p>Sugerido: <span id="sugerido"></span></p>
+  <p>Máximo: <span id="maximo"></span></p>
+</section>
+
+<script type="module" src="js/asesor.js"></script>
+</body>
+</html>
