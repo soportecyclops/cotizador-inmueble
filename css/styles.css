@@ -103,3 +103,39 @@ body.cliente {
   color: #777;
   text-align: center;
 }
+
+/* ===================== */
+/* IMPRESION / PDF */
+/* ===================== */
+
+@media print {
+
+  body {
+    background: #ffffff;
+  }
+
+  .btn-pdf {
+    display: none;
+  }
+
+  .informe {
+    box-shadow: none;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .encabezado h1 {
+    font-size: 24px;
+  }
+
+  /* Mantiene aislamiento semántico */
+  .resultado .valor {
+    font-size: 20px;
+  }
+
+  footer,
+  .nota {
+    page-break-inside: avoid;
+  }
+
+}
