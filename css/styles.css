@@ -1,0 +1,105 @@
+/* ===================== */
+/* ESTILOS GENERALES */
+/* ===================== */
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+header {
+  background: #000;
+  color: #c5a24a;
+  padding: 20px;
+}
+
+.box {
+  background: white;
+  margin: 30px auto;
+  padding: 25px;
+  width: 700px;
+  border-radius: 6px;
+}
+
+h1,
+h2 {
+  color: #000;
+}
+
+.valor h1 {
+  color: #c5a24a;
+  font-size: 42px;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+
+/* ===================== */
+/* ESTILO INFORME CLIENTE */
+/* ===================== */
+
+body.cliente {
+  background: #f5f5f5;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.informe {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.encabezado h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #9b8b57; /* dorado Century21 */
+}
+
+.resultado .valores {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.resultado .valores div {
+  text-align: center;
+  flex: 1;
+}
+
+.resultado .destacado {
+  border: 2px solid #9b8b57;
+  padding: 15px;
+  margin: 0 10px;
+}
+
+/* Valor aislado para evitar colisión con estilos generales */
+.resultado .valor {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.nota {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #555;
+}
+
+.pie {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+}
