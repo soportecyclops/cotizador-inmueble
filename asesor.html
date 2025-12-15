@@ -2,46 +2,35 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Sistema de Tasación – Asesor</title>
+  <title>Tasación – Uso Interno Asesor</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="sistema">
 
-<h1>Sistema de Tasación – Uso Interno</h1>
+<h1>Tasación Inmobiliaria – Uso Interno</h1>
 
-<!-- ================= SUJETO ================= -->
+<!-- ================= INMUEBLE SUJETO ================= -->
 <section class="bloque">
   <h2>Inmueble a Tasar</h2>
 
   <div class="fila">
     <label>Superficie cubierta (m²)</label>
-    <input type="number" id="supCubierta">
-  </div>
-
-  <div class="fila">
-    <label>Estado general (1 a 5)</label>
-    <input type="number" id="estado" min="1" max="5">
-  </div>
-
-  <div class="fila">
-    <label>Calidad constructiva (1 a 5)</label>
-    <input type="number" id="calidad" min="1" max="5">
+    <input type="number" id="sujeto_sup">
   </div>
 </section>
 
 <!-- ================= COMPARABLES ================= -->
 <section class="bloque">
-  <h2>Comparables de Mercado</h2>
+  <h2>Comparables</h2>
 
   <table class="tabla">
     <thead>
       <tr>
         <th>Precio USD</th>
-        <th>Sup.</th>
-        <th>Estado</th>
-        <th>Calidad</th>
-        <th>Tipo</th>
+        <th>Sup. Cub.</th>
+        <th>Sup. Desc.</th>
         <th>Antig. (meses)</th>
+        <th>Factores de Ajuste</th>
       </tr>
     </thead>
     <tbody id="tablaComparables"></tbody>
@@ -50,9 +39,9 @@
   <button id="agregarComparable">+ Agregar comparable</button>
 </section>
 
-<!-- ================= ACCIONES ================= -->
+<!-- ================= ACCIÓN ================= -->
 <section class="bloque">
-  <button id="calcular">Generar informe</button>
+  <button id="calcular">Generar Tasación</button>
 </section>
 
 <script type="module" src="js/asesor.js"></script>
