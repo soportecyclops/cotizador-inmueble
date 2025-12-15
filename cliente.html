@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tasación Century21</title>
+<link rel="stylesheet" href="css/century21.css">
+</head>
+<body class="cliente">
+
+<header>
+  <img src="assets/logo-century21.png">
+</header>
+
+<section class="box">
+  <h2>Informe de Valoración</h2>
+
+  <p id="direccion"></p>
+
+  <div class="valor">
+    <strong>Valor sugerido</strong>
+    <h1 id="valor"></h1>
+    <p id="rango"></p>
+  </div>
+
+  <p class="nota">
+    El valor informado surge del análisis comparativo de mercado
+    según operaciones recientes en la zona.
+  </p>
+</section>
+
+<footer>
+  Asesor Inmobiliario Century21 – Documento informativo
+</footer>
+
+<script>
+const data = JSON.parse(sessionStorage.getItem("tasacion"));
+document.getElementById("direccion").innerText = data.direccion;
+document.getElementById("valor").innerText = "USD " + data.resultado.sugerido;
+document.getElementById("rango").innerText =
+  "Rango estimado: USD " + data.resultado.min + " – " + data.resultado.max;
+</script>
+</body>
+</html>
