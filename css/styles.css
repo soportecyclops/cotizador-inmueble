@@ -183,3 +183,21 @@ body.sistema {
   padding: 5px;
   text-align: center;
 }
+
+/* ===================== */
+/* FACTORES / AJUSTES */
+/* ===================== */
+
+.factor {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.factor span {
+  display: inline-block;
+  width: 140px;
+}
+
+.factor label {
+  margin-right: 6px;
+}
