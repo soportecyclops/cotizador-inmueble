@@ -33,3 +33,30 @@
   font-size: 14px;
   text-align: right;
 }
+
+/* ===================== */
+/* AJUSTES CUALITATIVOS */
+/* ===================== */
+
+.ajuste {
+  display: flex;
+  gap: 10px;
+}
+
+.ajuste button {
+  font-size: 18px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.ajuste button:hover {
+  background: #e5e5e5;
+}
+
+.ajuste button.active {
+  background: #c7b37f;
+  border-color: #a08c4a;
+}
