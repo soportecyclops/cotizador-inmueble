@@ -25,8 +25,13 @@
     </label>
 
     <label>
-      Entre calles
-      <input type="text" placeholder="Calle A y Calle B">
+      Entre calle
+      <input type="text" id="entreCalle1" placeholder="Calle A">
+    </label>
+
+    <label>
+      y
+      <input type="text" id="entreCalle2" placeholder="Calle B">
     </label>
 
     <label>
@@ -180,7 +185,7 @@
     </tfoot>
   </table>
 
-  <!-- ===== AJUSTES CUALITATIVOS ===== -->
+  <!-- ================= AJUSTES CUALITATIVOS ================= -->
   <h3>Ajustes Cualitativos</h3>
 
   <table class="tabla ajustes">
@@ -189,9 +194,39 @@
         <td>Estado de mantenimiento</td>
         <td>15%</td>
         <td class="ajuste">
-          <button title="Inferior">👎</button>
-          <button title="Similar">➖</button>
-          <button title="Superior">👍</button>
+          <button class="ajuste-btn" title="Inferior">👎</button>
+          <button class="ajuste-btn" title="Similar">➖</button>
+          <button class="ajuste-btn" title="Superior">👍</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Orientación</td>
+        <td>5%</td>
+        <td class="ajuste">
+          <button class="ajuste-btn" title="Inferior">👎</button>
+          <button class="ajuste-btn" title="Similar">➖</button>
+          <button class="ajuste-btn" title="Superior">👍</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Disposición</td>
+        <td>5%</td>
+        <td class="ajuste">
+          <button class="ajuste-btn" title="Inferior">👎</button>
+          <button class="ajuste-btn" title="Similar">➖</button>
+          <button class="ajuste-btn" title="Superior">👍</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ubicación dentro del edificio</td>
+        <td>5%</td>
+        <td class="ajuste">
+          <button class="ajuste-btn" title="Inferior">👎</button>
+          <button class="ajuste-btn" title="Similar">➖</button>
+          <button class="ajuste-btn" title="Superior">👍</button>
         </td>
       </tr>
     </tbody>
