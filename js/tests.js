@@ -1,25 +1,59 @@
 import { calcularTasacion } from "./motor.js";
 
-function testBasico() {
-  const data = {
-    sujeto: { cubierta: 100, estado: 4, calidad: 4 },
-    comparables: [
-      { precio: 100000, superficie: 100, estado: 3, calidad: 3, tipo: "venta", antiguedadMeses: 6 },
-      { precio: 105000, superficie: 100, estado: 4, calidad: 4, tipo: "venta", antiguedadMeses: 3 },
-      { precio: 95000, superficie: 100, estado: 3, calidad: 3, tipo: "oferta", antiguedadMeses: 12 }
-    ]
+console.group("TEST MOTOR TASACIÓN");
+
+try {
+  const sujeto = {
+    cubierta: 100
   };
 
-  console.log("TEST BÁSICO:", calcularTasacion(data));
+  const comparables = [
+    {
+      precioUSD: 200000,
+      superficieCubierta: 100,
+      ajustes: {
+        ubicacion: "similar",
+        calidadConstruccion: "similar",
+        expectativaVida: "similar",
+        estadoMantenimiento: "similar",
+        superficieCubierta: "similar",
+        superficieDescubierta: "similar",
+        estacionamiento: "similar",
+        factibilidadComercial: "similar",
+        distribucion: "similar",
+        orientacionVistas: "similar"
+      }
+    },
+    {
+      precioUSD: 180000,
+      superficieCubierta: 100,
+      ajustes: {
+        ubicacion: "inferior",
+        calidadConstruccion: "similar",
+        expectativaVida: "similar",
+        estadoMantenimiento: "similar",
+        superficieCubierta: "similar",
+        superficieDescubierta: "similar",
+        estacionamiento: "similar",
+        factibilidadComercial: "similar",
+        distribucion: "similar",
+        orientacionVistas: "inferior"
+      }
+    }
+  ];
+
+  const resultado = calcularTasacion({ sujeto, comparables });
+
+  console.log("Resultado:", resultado);
+
+  console.assert(resultado.minimo < resultado.maximo, "Min < Max");
+  console.assert(resultado.sugerido > resultado.minimo, "Sug > Min");
+  console.assert(resultado.sugerido < resultado.maximo, "Sug < Max");
+
+  console.log("✔ TEST PASADO");
+
+} catch (e) {
+  console.error("❌ TEST FALLÓ", e);
 }
 
-function testError() {
-  try {
-    calcularTasacion({ sujeto: {}, comparables: [] });
-  } catch (e) {
-    console.log("TEST ERROR OK:", e);
-  }
-}
-
-testBasico();
-testError();
+console.groupEnd();
