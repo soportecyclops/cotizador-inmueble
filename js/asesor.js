@@ -1,10 +1,11 @@
 import { calcularTasacion } from "./motor.js";
 
-const tablaBody = document.querySelector("#tablaComparables tbody");
+const tabla = document.getElementById("tablaComparables");
 
 document.getElementById("agregarComparable").addEventListener("click", () => {
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
+  const tr = document.createElement("tr");
+
+  tr.innerHTML = `
     <td><input type="number" class="precio"></td>
     <td><input type="number" class="superficie"></td>
     <td><input type="number" class="estado" min="1" max="5"></td>
@@ -17,10 +18,12 @@ document.getElementById("agregarComparable").addEventListener("click", () => {
     </td>
     <td><input type="number" class="antiguedad"></td>
   `;
-  tablaBody.appendChild(fila);
+
+  tabla.appendChild(tr);
 });
 
 document.getElementById("calcular").addEventListener("click", () => {
+
   try {
     const sujeto = {
       cubierta: Number(document.getElementById("supCubierta").value),
@@ -30,34 +33,30 @@ document.getElementById("calcular").addEventListener("click", () => {
 
     const comparables = [];
 
-    document.querySelectorAll("#tablaComparables tbody tr").forEach(fila => {
+    document.querySelectorAll("#tablaComparables tr").forEach(tr => {
       comparables.push({
-        precio: Number(fila.querySelector(".precio").value),
-        superficie: Number(fila.querySelector(".superficie").value),
-        estado: Number(fila.querySelector(".estado").value),
-        calidad: Number(fila.querySelector(".calidad").value),
-        tipo: fila.querySelector(".tipo").value,
-        antiguedadMeses: Number(fila.querySelector(".antiguedad").value)
+        precio: Number(tr.querySelector(".precio").value),
+        superficie: Number(tr.querySelector(".superficie").value),
+        estado: Number(tr.querySelector(".estado").value),
+        calidad: Number(tr.querySelector(".calidad").value),
+        tipo: tr.querySelector(".tipo").value,
+        antiguedadMeses: Number(tr.querySelector(".antiguedad").value)
       });
     });
 
     const resultado = calcularTasacion({ sujeto, comparables });
 
-    // 🔒 Guardar SOLO lo que verá el cliente
-    const payloadCliente = {
+    localStorage.setItem("tasacion_cliente", JSON.stringify({
       superficie: sujeto.cubierta,
       minimo: resultado.minimo,
       sugerido: resultado.sugerido,
       maximo: resultado.maximo,
       fecha: new Date().toISOString()
-    };
+    }));
 
-    localStorage.setItem("tasacion_cliente", JSON.stringify(payloadCliente));
-
-    // Abrir vista cliente
     window.open("index.html", "_blank");
 
   } catch (e) {
-    alert("Error en la tasación: " + e);
+    alert("Error: " + e);
   }
 });
