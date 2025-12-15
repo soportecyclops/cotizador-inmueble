@@ -44,6 +44,64 @@
   <button id="calcular">Generar Tasación</button>
 </section>
 
+<!-- ================= COMPOSICIÓN DEL VALOR ================= -->
+<section class="bloque">
+  <h2>Composición del Valor del Inmueble</h2>
+
+  <table class="tabla tabla-valor">
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>m²</th>
+        <th>%</th>
+        <th>Sup. Homologada</th>
+        <th>USD / m²</th>
+        <th>USD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Superficie Cubierta</td>
+        <td><input type="number" value="60.2"></td>
+        <td>100%</td>
+        <td>60.20</td>
+        <td class="auto">—</td>
+        <td class="auto">—</td>
+      </tr>
+      <tr>
+        <td>Superficie Semicubierta</td>
+        <td><input type="number"></td>
+        <td>50%</td>
+        <td>0.00</td>
+        <td class="auto">—</td>
+        <td class="auto">—</td>
+      </tr>
+      <tr>
+        <td>Superficie Descubierta</td>
+        <td><input type="number"></td>
+        <td>20%</td>
+        <td>0.00</td>
+        <td class="auto">—</td>
+        <td class="auto">—</td>
+      </tr>
+      <tr>
+        <td>Balcón</td>
+        <td><input type="number"></td>
+        <td>33%</td>
+        <td>0.00</td>
+        <td class="auto">—</td>
+        <td class="auto">—</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="total">
+        <td colspan="5">TOTAL VALOR DE TASACIÓN</td>
+        <td>$ 111.414,54</td>
+      </tr>
+    </tfoot>
+  </table>
+</section>
+
 <script type="module" src="js/asesor.js"></script>
 </body>
 </html>
