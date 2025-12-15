@@ -1,203 +1,35 @@
 /* ===================== */
-/* ESTILOS GENERALES */
+/* TABLA COMPOSICIÓN DE VALOR */
 /* ===================== */
 
-body {
-  font-family: "Montserrat", Arial, sans-serif;
-  background: #f5f5f5;
-  margin: 0;
+.tabla-valor {
+  background: #fafafa;
+  font-size: 13px;
 }
 
-header {
-  background: #000;
-  color: #c5a24a;
-  padding: 20px;
+.tabla-valor th {
+  background: #e9e5d9;
+  color: #333;
+  font-weight: 600;
 }
 
-.box {
-  background: white;
-  margin: 30px auto;
-  padding: 25px;
-  width: 700px;
-  border-radius: 6px;
-}
-
-h1,
-h2 {
-  color: #000;
-}
-
-.valor h1 {
-  color: #c5a24a;
-  font-size: 42px;
-}
-
-footer {
-  text-align: center;
-  font-size: 12px;
-  color: #777;
-}
-
-/* ===================== */
-/* ESTILO INFORME CLIENTE */
-/* ===================== */
-
-body.cliente {
-  background: #f5f5f5;
-  font-family: "Montserrat", Arial, sans-serif;
-}
-
-.informe {
-  max-width: 800px;
-  margin: 40px auto;
+.tabla-valor td {
   background: #ffffff;
-  padding: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.encabezado h1 {
-  margin: 0;
-  font-size: 28px;
+.tabla-valor input {
+  width: 70px;
+  text-align: right;
 }
 
-.encabezado h2 {
-  margin: 0;
-  font-size: 18px;
-  color: #9b8b57; /* dorado Century21 */
+.tabla-valor .auto {
+  color: #777;
+  text-align: right;
 }
 
-.resultado .valores {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.resultado .valores div {
-  text-align: center;
-  flex: 1;
-}
-
-.resultado .destacado {
-  border: 2px solid #9b8b57;
-  padding: 15px;
-  margin: 0 10px;
-}
-
-/* Valor aislado para evitar colisión con estilos generales */
-.resultado .valor {
-  display: block;
-  font-size: 22px;
+.tabla-valor tfoot .total td {
+  background: #d8d2c0;
   font-weight: bold;
-  margin-top: 10px;
-}
-
-.nota {
-  margin-top: 30px;
   font-size: 14px;
-  color: #555;
-}
-
-.pie {
-  margin-top: 40px;
-  font-size: 12px;
-  color: #777;
-  text-align: center;
-}
-
-/* ===================== */
-/* IMPRESION / PDF */
-/* ===================== */
-
-@media print {
-
-  body {
-    background: #ffffff;
-  }
-
-  .btn-pdf {
-    display: none;
-  }
-
-  .informe {
-    box-shadow: none;
-    margin: 0;
-    padding: 20px;
-  }
-
-  .encabezado h1 {
-    font-size: 24px;
-  }
-
-  /* Mantiene aislamiento semántico */
-  .resultado .valor {
-    font-size: 20px;
-  }
-
-  footer,
-  .nota {
-    page-break-inside: avoid;
-  }
-
-}
-
-/* ===================== */
-/* SISTEMA ASESOR */
-/* ===================== */
-
-body.sistema {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  padding: 20px;
-}
-
-.bloque {
-  background: #ffffff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-left: 5px solid #9b8b57;
-}
-
-.fila {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.fila label {
-  flex: 1;
-}
-
-.fila input {
-  flex: 1;
-}
-
-.tabla {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 10px;
-}
-
-.tabla th,
-.tabla td {
-  border: 1px solid #ccc;
-  padding: 5px;
-  text-align: center;
-}
-
-/* ===================== */
-/* FACTORES / AJUSTES */
-/* ===================== */
-
-.factor {
-  font-size: 11px;
-  margin-bottom: 4px;
-}
-
-.factor span {
-  display: inline-block;
-  width: 140px;
-}
-
-.factor label {
-  margin-right: 6px;
+  text-align: right;
 }
