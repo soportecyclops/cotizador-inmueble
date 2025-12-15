@@ -16,7 +16,7 @@
   <div class="grid-2">
     <label>
       Dirección
-      <input type="text" placeholder="Calle y número">
+      <input type="text" id="direccion" placeholder="Calle y número">
     </label>
 
     <label>
@@ -31,7 +31,41 @@
 
     <label>
       Localidad / Ciudad
-      <input type="text">
+      <input type="text" id="ciudad">
+    </label>
+
+    <label>
+      Orientación
+      <select id="orientacion">
+        <option value="">Seleccionar</option>
+        <option value="N">Norte</option>
+        <option value="S">Sur</option>
+        <option value="E">Este</option>
+        <option value="O">Oeste</option>
+      </select>
+    </label>
+
+    <label>
+      Disposición
+      <select id="disposicion">
+        <option value="">Seleccionar</option>
+        <option value="frente">Frente</option>
+        <option value="contra">Contrafrente</option>
+        <option value="pulmon">Pulmón de manzana</option>
+        <option value="lateral">Lateral</option>
+      </select>
+    </label>
+
+    <label>
+      Estado de mantenimiento
+      <select id="estado">
+        <option value="">Seleccionar</option>
+        <option value="1">1 - Muy malo</option>
+        <option value="2">2 - Malo</option>
+        <option value="3">3 - Regular</option>
+        <option value="4">4 - Bueno</option>
+        <option value="5">5 - Muy bueno</option>
+      </select>
     </label>
   </div>
 
