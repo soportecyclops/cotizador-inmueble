@@ -20,8 +20,13 @@
     </label>
 
     <label>
+      Ciudad / Localidad
+      <input type="text" id="ciudad">
+    </label>
+
+    <label>
       Código Postal
-      <input type="text" maxlength="8">
+      <input type="text" id="cp">
     </label>
 
     <label>
@@ -32,11 +37,6 @@
     <label>
       y
       <input type="text" id="entreCalle2" placeholder="Calle B">
-    </label>
-
-    <label>
-      Localidad / Ciudad
-      <input type="text" id="ciudad">
     </label>
 
     <label>
@@ -193,40 +193,40 @@
       <tr>
         <td>Estado de mantenimiento</td>
         <td>15%</td>
-        <td class="ajuste">
-          <button class="ajuste-btn" title="Inferior">👎</button>
-          <button class="ajuste-btn" title="Similar">➖</button>
-          <button class="ajuste-btn" title="Superior">👍</button>
+        <td class="ajuste" data-factor="estado">
+          <button class="ajuste-btn" data-ajuste="-1" title="Inferior">👎</button>
+          <button class="ajuste-btn" data-ajuste="0" title="Similar">➖</button>
+          <button class="ajuste-btn" data-ajuste="1" title="Superior">👍</button>
         </td>
       </tr>
 
       <tr>
         <td>Orientación</td>
         <td>5%</td>
-        <td class="ajuste">
-          <button class="ajuste-btn" title="Inferior">👎</button>
-          <button class="ajuste-btn" title="Similar">➖</button>
-          <button class="ajuste-btn" title="Superior">👍</button>
+        <td class="ajuste" data-factor="orientacion">
+          <button class="ajuste-btn" data-ajuste="-1">👎</button>
+          <button class="ajuste-btn" data-ajuste="0">➖</button>
+          <button class="ajuste-btn" data-ajuste="1">👍</button>
         </td>
       </tr>
 
       <tr>
         <td>Disposición</td>
         <td>5%</td>
-        <td class="ajuste">
-          <button class="ajuste-btn" title="Inferior">👎</button>
-          <button class="ajuste-btn" title="Similar">➖</button>
-          <button class="ajuste-btn" title="Superior">👍</button>
+        <td class="ajuste" data-factor="disposicion">
+          <button class="ajuste-btn" data-ajuste="-1">👎</button>
+          <button class="ajuste-btn" data-ajuste="0">➖</button>
+          <button class="ajuste-btn" data-ajuste="1">👍</button>
         </td>
       </tr>
 
       <tr>
         <td>Ubicación dentro del edificio</td>
         <td>5%</td>
-        <td class="ajuste">
-          <button class="ajuste-btn" title="Inferior">👎</button>
-          <button class="ajuste-btn" title="Similar">➖</button>
-          <button class="ajuste-btn" title="Superior">👍</button>
+        <td class="ajuste" data-factor="ubicacion">
+          <button class="ajuste-btn" data-ajuste="-1">👎</button>
+          <button class="ajuste-btn" data-ajuste="0">➖</button>
+          <button class="ajuste-btn" data-ajuste="1">👍</button>
         </td>
       </tr>
     </tbody>
@@ -234,8 +234,11 @@
 
 </section>
 
-<!-- ✔ SOLO UNA VEZ Y COMO MODULE -->
+<!-- ================= SCRIPTS ================= -->
 <script type="module" src="js/asesor.js"></script>
+<!--
+<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&libraries=places"></script>
+-->
 
 </body>
 </html>
