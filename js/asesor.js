@@ -1,4 +1,5 @@
 import { calcularTasacion } from "./motor.js";
+import { calcularComposicion, setAjusteCualitativo } from "./composicion.js";
 
 /* ============================= */
 /* INIT GENERAL */
@@ -198,3 +199,25 @@ function recalcularComposicion(valorM2) {
     totalNodo.textContent = `$ ${total.toLocaleString("es-AR")}`;
   }
 }
+
+/* ============================= */
+/* ACTUALIZACIÓN DE AJUSTES CUALITATIVOS */
+/* ============================= */
+
+document.querySelectorAll(".m2").forEach(input => {
+  input.addEventListener("input", recalcularComposicion);
+});
+
+document.querySelectorAll(".ajuste").forEach(fila => {
+  const peso = parseFloat(fila.previousElementSibling.textContent) / 100;
+
+  fila.querySelectorAll(".ajuste-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      fila.querySelectorAll(".ajuste-btn").forEach(b => b.classList.remove("activo"));
+      btn.classList.add("activo");
+
+      const valor = parseInt(btn.dataset.ajuste);
+      setAjusteCualitativo(valor * peso);
+    });
+  });
+});
