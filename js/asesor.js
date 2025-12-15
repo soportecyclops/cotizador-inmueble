@@ -1,62 +1,81 @@
 import { calcularTasacion } from "./motor.js";
 
+const FACTORES = [
+  "ubicacion",
+  "calidadConstruccion",
+  "expectativaVida",
+  "estadoMantenimiento",
+  "superficieCubierta",
+  "superficieDescubierta",
+  "estacionamiento",
+  "factibilidadComercial",
+  "distribucion",
+  "orientacionVistas"
+];
+
 const tabla = document.getElementById("tablaComparables");
 
 document.getElementById("agregarComparable").addEventListener("click", () => {
   const tr = document.createElement("tr");
 
+  let factoresHTML = "";
+  FACTORES.forEach(f => {
+    factoresHTML += `
+      <div class="factor">
+        <span>${f}</span>
+        <label><input type="radio" name="${f}_${Date.now()}" value="inferior">Inf</label>
+        <label><input type="radio" name="${f}_${Date.now()}" value="similar" checked>Sim</label>
+        <label><input type="radio" name="${f}_${Date.now()}" value="superior">Sup</label>
+      </div>
+    `;
+  });
+
   tr.innerHTML = `
     <td><input type="number" class="precio"></td>
-    <td><input type="number" class="superficie"></td>
-    <td><input type="number" class="estado" min="1" max="5"></td>
-    <td><input type="number" class="calidad" min="1" max="5"></td>
-    <td>
-      <select class="tipo">
-        <option value="venta">Venta</option>
-        <option value="oferta">Oferta</option>
-      </select>
-    </td>
-    <td><input type="number" class="antiguedad"></td>
+    <td><input type="number" class="supCub"></td>
+    <td><input type="number" class="supDesc"></td>
+    <td><input type="number" class="antig"></td>
+    <td class="factores">${factoresHTML}</td>
   `;
 
   tabla.appendChild(tr);
 });
 
 document.getElementById("calcular").addEventListener("click", () => {
-
   try {
     const sujeto = {
-      cubierta: Number(document.getElementById("supCubierta").value),
-      estado: Number(document.getElementById("estado").value),
-      calidad: Number(document.getElementById("calidad").value)
+      cubierta: Number(document.getElementById("sujeto_sup").value)
     };
 
     const comparables = [];
 
-    document.querySelectorAll("#tablaComparables tr").forEach(tr => {
+    tabla.querySelectorAll("tr").forEach(tr => {
+      const ajustes = {};
+
+      FACTORES.forEach(f => {
+        const seleccionado = tr.querySelector(`input[name^="${f}_"]:checked`);
+        ajustes[f] = seleccionado ? seleccionado.value : "similar";
+      });
+
       comparables.push({
-        precio: Number(tr.querySelector(".precio").value),
-        superficie: Number(tr.querySelector(".superficie").value),
-        estado: Number(tr.querySelector(".estado").value),
-        calidad: Number(tr.querySelector(".calidad").value),
-        tipo: tr.querySelector(".tipo").value,
-        antiguedadMeses: Number(tr.querySelector(".antiguedad").value)
+        precioUSD: Number(tr.querySelector(".precio").value),
+        superficieCubierta: Number(tr.querySelector(".supCub").value),
+        superficieDescubierta: Number(tr.querySelector(".supDesc").value),
+        antiguedadMeses: Number(tr.querySelector(".antig").value),
+        ajustes
       });
     });
 
     const resultado = calcularTasacion({ sujeto, comparables });
 
-    localStorage.setItem("tasacion_cliente", JSON.stringify({
-      superficie: sujeto.cubierta,
-      minimo: resultado.minimo,
-      sugerido: resultado.sugerido,
-      maximo: resultado.maximo,
-      fecha: new Date().toISOString()
-    }));
+    localStorage.setItem(
+      "tasacion_cliente",
+      JSON.stringify(resultado)
+    );
 
-    window.open("index.html", "_blank");
+    alert("Tasación generada correctamente");
 
   } catch (e) {
-    alert("Error: " + e);
+    alert("Error: " + e.message);
   }
 });
