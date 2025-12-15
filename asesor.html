@@ -180,7 +180,7 @@
     <tfoot>
       <tr class="total">
         <td colspan="5">TOTAL VALOR DE TASACIÓN</td>
-        <td>$ 111.414,54</td>
+        <td id="totalTasacion">—</td>
       </tr>
     </tfoot>
   </table>
@@ -190,12 +190,13 @@
 
   <table class="tabla ajustes">
     <tbody>
+
       <tr>
         <td>Estado de mantenimiento</td>
         <td>15%</td>
-        <td class="ajuste" data-factor="estado">
+        <td class="ajuste" data-factor="estado" data-valor="0">
           <button class="ajuste-btn" data-ajuste="-1" title="Inferior">👎</button>
-          <button class="ajuste-btn" data-ajuste="0" title="Similar">➖</button>
+          <button class="ajuste-btn active" data-ajuste="0" title="Similar">➖</button>
           <button class="ajuste-btn" data-ajuste="1" title="Superior">👍</button>
         </td>
       </tr>
@@ -203,9 +204,9 @@
       <tr>
         <td>Orientación</td>
         <td>5%</td>
-        <td class="ajuste" data-factor="orientacion">
+        <td class="ajuste" data-factor="orientacion" data-valor="0">
           <button class="ajuste-btn" data-ajuste="-1">👎</button>
-          <button class="ajuste-btn" data-ajuste="0">➖</button>
+          <button class="ajuste-btn active" data-ajuste="0">➖</button>
           <button class="ajuste-btn" data-ajuste="1">👍</button>
         </td>
       </tr>
@@ -213,9 +214,9 @@
       <tr>
         <td>Disposición</td>
         <td>5%</td>
-        <td class="ajuste" data-factor="disposicion">
+        <td class="ajuste" data-factor="disposicion" data-valor="0">
           <button class="ajuste-btn" data-ajuste="-1">👎</button>
-          <button class="ajuste-btn" data-ajuste="0">➖</button>
+          <button class="ajuste-btn active" data-ajuste="0">➖</button>
           <button class="ajuste-btn" data-ajuste="1">👍</button>
         </td>
       </tr>
@@ -223,12 +224,13 @@
       <tr>
         <td>Ubicación dentro del edificio</td>
         <td>5%</td>
-        <td class="ajuste" data-factor="ubicacion">
+        <td class="ajuste" data-factor="ubicacion" data-valor="0">
           <button class="ajuste-btn" data-ajuste="-1">👎</button>
-          <button class="ajuste-btn" data-ajuste="0">➖</button>
+          <button class="ajuste-btn active" data-ajuste="0">➖</button>
           <button class="ajuste-btn" data-ajuste="1">👍</button>
         </td>
       </tr>
+
     </tbody>
   </table>
 
