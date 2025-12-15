@@ -2,60 +2,57 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tasación Interna – Century21</title>
+  <title>Sistema de Tasación – Asesor</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="sistema">
 
-<h1>Tasación Interna – Asesor</h1>
+<h1>Sistema de Tasación – Uso Interno</h1>
 
-<section>
+<!-- ================= SUJETO ================= -->
+<section class="bloque">
   <h2>Inmueble a Tasar</h2>
 
-  <label>Superficie cubierta (m²)
+  <div class="fila">
+    <label>Superficie cubierta (m²)</label>
     <input type="number" id="supCubierta">
-  </label>
+  </div>
 
-  <label>Estado (1 a 5)
+  <div class="fila">
+    <label>Estado general (1 a 5)</label>
     <input type="number" id="estado" min="1" max="5">
-  </label>
+  </div>
 
-  <label>Calidad (1 a 5)
+  <div class="fila">
+    <label>Calidad constructiva (1 a 5)</label>
     <input type="number" id="calidad" min="1" max="5">
-  </label>
+  </div>
 </section>
 
-<section>
-  <h2>Comparables</h2>
+<!-- ================= COMPARABLES ================= -->
+<section class="bloque">
+  <h2>Comparables de Mercado</h2>
 
-  <table id="tablaComparables">
+  <table class="tabla">
     <thead>
       <tr>
         <th>Precio USD</th>
-        <th>Superficie</th>
+        <th>Sup.</th>
         <th>Estado</th>
         <th>Calidad</th>
         <th>Tipo</th>
-        <th>Antigüedad (meses)</th>
+        <th>Antig. (meses)</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- filas dinámicas -->
-    </tbody>
+    <tbody id="tablaComparables"></tbody>
   </table>
 
-  <button id="agregarComparable">Agregar comparable</button>
+  <button id="agregarComparable">+ Agregar comparable</button>
 </section>
 
-<section>
-  <button id="calcular">Calcular Tasación</button>
-</section>
-
-<section id="resultado">
-  <h2>Resultado Interno</h2>
-  <p>Mínimo: <span id="minimo"></span></p>
-  <p>Sugerido: <span id="sugerido"></span></p>
-  <p>Máximo: <span id="maximo"></span></p>
+<!-- ================= ACCIONES ================= -->
+<section class="bloque">
+  <button id="calcular">Generar informe</button>
 </section>
 
 <script type="module" src="js/asesor.js"></script>
