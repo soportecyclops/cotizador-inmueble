@@ -4,7 +4,6 @@ const tablaBody = document.querySelector("#tablaComparables tbody");
 
 document.getElementById("agregarComparable").addEventListener("click", () => {
   const fila = document.createElement("tr");
-
   fila.innerHTML = `
     <td><input type="number" class="precio"></td>
     <td><input type="number" class="superficie"></td>
@@ -18,14 +17,11 @@ document.getElementById("agregarComparable").addEventListener("click", () => {
     </td>
     <td><input type="number" class="antiguedad"></td>
   `;
-
   tablaBody.appendChild(fila);
 });
 
 document.getElementById("calcular").addEventListener("click", () => {
-
   try {
-
     const sujeto = {
       cubierta: Number(document.getElementById("supCubierta").value),
       estado: Number(document.getElementById("estado").value),
@@ -47,12 +43,21 @@ document.getElementById("calcular").addEventListener("click", () => {
 
     const resultado = calcularTasacion({ sujeto, comparables });
 
-    document.getElementById("minimo").innerText = `$ ${resultado.minimo}`;
-    document.getElementById("sugerido").innerText = `$ ${resultado.sugerido}`;
-    document.getElementById("maximo").innerText = `$ ${resultado.maximo}`;
+    // 🔒 Guardar SOLO lo que verá el cliente
+    const payloadCliente = {
+      superficie: sujeto.cubierta,
+      minimo: resultado.minimo,
+      sugerido: resultado.sugerido,
+      maximo: resultado.maximo,
+      fecha: new Date().toISOString()
+    };
+
+    localStorage.setItem("tasacion_cliente", JSON.stringify(payloadCliente));
+
+    // Abrir vista cliente
+    window.open("index.html", "_blank");
 
   } catch (e) {
     alert("Error en la tasación: " + e);
   }
-
 });
